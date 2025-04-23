@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier
+_commit: v2.0.6
+_src_path: gh:lincc-frameworks/python-project-template
+author_email: romain@infiniteorbits.io
+author_name: Validation Team
+custom_install: false
+package_name: gripper_test
+project_license: MIT
+project_name: gripper_test_code
+project_organization: InfiniteOrbits
