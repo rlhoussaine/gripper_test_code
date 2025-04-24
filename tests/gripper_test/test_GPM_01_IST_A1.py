@@ -37,6 +37,7 @@ def GPM_01_IST_A1_02(
     """
     Send TC[129,1] to switch on the gripper.
     """
+    ack_report = context.pus_client.send_acked_tc(tc=tc_129_1)
     return None
 
 def GPM_01_IST_A1_03():
@@ -53,11 +54,21 @@ def GPM_01_IST_A1_04(
         - Operation Mode
         - internal state
     """
+    ack_report = context.pus_client.send_acked_tc(tc=tc_20_1)
+
+    def filter_TM_20_2(parsed_tm):
+        return(
+            isinstance(parsed_tm, pf_tm.TM_20_1_ReportParameterValues) and
+            parsed_tm.SidStatus == tm.ptcpfc_3_4_S_R_ENKT0002__1.StatusDisabled
+
+        )
+    my_received_tm = context.pus_client.receive_tm("CANA", filter_TM_20_1)
+    assert my_received_tm is not None
     return None
 
 def GPM_01_IST_A1_05(        
         ctx:Context,
-        tc_129_2 = pf_tc.TC_129_2_ActiveModeTransReq() ):
+        tc_129_2 = pf_tc.TC_129_2_TODO() ):
     """
     Send TC[129,2] to switch off the gripper.
     """
@@ -72,6 +83,17 @@ def GPM_01_IST_A1_06(
         - Operation Mode
         - internal state
     """
+
+    ack_report = context.pus_client.send_acked_tc(tc=tc_20_1)
+
+    def filter_TM_20_2(parsed_tm):
+        return(
+            isinstance(parsed_tm, pf_tm.TM_20_1_ReportParameterValues) and
+            parsed_tm.SidStatus == tm.ptcpfc_3_4_S_R_ENKT0002__1.StatusDisabled
+
+        )
+    my_received_tm = context.pus_client.receive_tm("CANA", filter_TM_20_1)
+    assert my_received_tm is not None
     return None
 
 def GPM_01_IST_A1_07():
