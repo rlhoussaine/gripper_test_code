@@ -17,10 +17,13 @@ classifiers = [
 dynamic = ["version"]
 requires-python = ">=3.9"
 dependencies = [
+    "yamcs-client>=1.11.3", # Used to communicate with the yamcs server
+    "flatsat-lib>=0.1.0",
+    "endurance-db-icd>=0.1.0"
 ]
 
 [project.urls]
-"Source Code" = "https://github.com/InfiniteOrbits/gripper_test_code"
+"Source Code" = "https://github.com/rlhoussaine/gripper_test_code"
 
 # On a mac, install optional dependencies with `pip install '.[dev]'` (include the single quotes)
 [project.optional-dependencies]

@@ -1,0 +1,3 @@
+[Config]
+endpoint = "https://localhost:8090"
+instance = "myproject"
